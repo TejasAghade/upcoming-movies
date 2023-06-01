@@ -41,7 +41,9 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
                     controller: searchController,
                     onChanged: (value) {
                       searchModel = searchMovies(searchController.text);
-                      
+                      setState(() {
+                        
+                      });
                     },
                     decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(),
@@ -57,6 +59,9 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
                   onPressed: () {
                     // if(searchController.text !=""){
                       searchModel = searchMovies(searchController.text);
+                      setState(() {
+                        
+                      });
                     // }
                   },
                   child: Container(
