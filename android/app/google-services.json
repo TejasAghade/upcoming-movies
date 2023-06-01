@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "767696249048",
+    "project_id": "tmdb-83dc3",
+    "storage_bucket": "tmdb-83dc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767696249048:android:8c30c39668a3836fc4b7ad",
+        "android_client_info": {
+          "package_name": "com.example.upcoming_movies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkjLBQ7dB-w8bSSz3gPUEHk3L53TnDFQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

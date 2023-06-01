@@ -1,0 +1,1 @@
+const upcomingMoviesTitle = "Upcoming Movies";
