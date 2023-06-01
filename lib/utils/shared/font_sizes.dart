@@ -1,1 +1,1 @@
-const double normalHeadingTextSizes = 24;
+const double normalHeadingTextSizes = 18;

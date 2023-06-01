@@ -19,7 +19,7 @@ FutureBuilder<GetAllMoviesModel> MoviesListWidget(
           height: screenHeight * 0.9,
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: (1 / 2.5)),
+                crossAxisCount: 2, childAspectRatio: (1 / 2.2)),
             itemCount: snapshot.data?.results?.length,
             itemBuilder: (BuildContext context, int index) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -53,7 +53,7 @@ FutureBuilder<GetAllMoviesModel> MoviesListWidget(
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 2),
                               ),
@@ -64,7 +64,7 @@ FutureBuilder<GetAllMoviesModel> MoviesListWidget(
                               child: Text(
                                 DateFormat("dd-MM-yyyy").format(
                                     snapshot.data!.results![index].releaseDate!),
-                                style: const TextStyle(fontSize: 20),
+                                style: const TextStyle(fontSize: 14),
                               ),
                             )
                           ],

@@ -44,19 +44,14 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
     screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: tmdbAppBar("TMDB", context),
+      appBar: tmdbAppBar("Upcoming Movies", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                upcomingMoviesTitle,
-                style: TextStyle(
-                    fontSize: normalHeadingTextSizes,
-                    fontWeight: FontWeight.bold),
-              ),
+              
               MoviesListWidget(moviesList: moviesList, screenHeight: screenHeight, screenWidth: screenWidth),
             ],
           ),

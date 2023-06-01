@@ -36,7 +36,8 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 300,
+                  width: 200,
+                  height: 39,
                   child: TextFormField(
                     controller: searchController,
                     onChanged: (value) {
@@ -46,6 +47,7 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
                       });
                     },
                     decoration: const InputDecoration(
+                      hintText: "Search...",
                         enabledBorder: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder()),
                   ),
@@ -55,7 +57,7 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
                 ),
                 MaterialButton(
                   color: Colors.red,
-                  height: 60,
+                  height: 39,
                   onPressed: () {
                     // if(searchController.text !=""){
                       searchModel = searchMovies(searchController.text);
@@ -69,18 +71,18 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
                     alignment: Alignment.center,
                     child: const Text(
                       "Search",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ),
                 )
               ],
             ),
            const SizedBox(
-              height: 30,
+              height: 10,
             ),
            const Divider(),
            const SizedBox(
-              height: 30,
+              height: 10,
             ),
             MoviesListWidget(
                 moviesList: searchModel,

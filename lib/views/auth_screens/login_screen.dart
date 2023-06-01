@@ -52,79 +52,88 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           // alignment: Alignment.center,
           padding:const EdgeInsets.symmetric(horizontal: 50),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-             const SizedBox(height: 50,),
-             Container(
-              alignment: Alignment.center,
-              child: Text(screenText, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),)),
-        
-             const SizedBox(height: 70,),
-        
-             const Text("Email", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-        
-              TextFormField(
-                controller: email,
-                validator: (value) {
-                  if(value ==""){
-                    return "this field is required";
-                  }
-                },
-              ),
-        
-             const SizedBox(height: 50,),
-        
-             const Text("Password", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-        
-              TextFormField(
-                controller: password,
-                obscureText: true,
-                validator: (value) {
-                  
-                  if(value ==""){
-                    return "this field is required";
-                  }
-                },
-              ),
-
-             const SizedBox(height: 50,),
-              Container(
-                alignment: Alignment.center,
-                child: MaterialButton(
-                  color: Colors.red,
-                    onPressed: () {
-                      isLogin? signInWithEmailAndPassword() : signupWithEmailAndPassword();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => MoviesListScreen(),));
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 100,
-                      alignment: Alignment.center,
-                      child: Text("$screenText", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),),
-                    )
-                ),
-              ),
-
-              SizedBox(height: 50,),
-              Container(
-                alignment: Alignment.center,
-                child: TextButton(onPressed: (){
-                  setState(() {
-
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                 const SizedBox(height: 50,),
+                 Container(
+                  alignment: Alignment.center,
+                  child: Text(screenText, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),)),
                     
-                    isLogin = !isLogin;
-                    if(isLogin){
-                      screenText = "Login";
-                    }else{
-                    screenText = "SignUp";
-
-                    }
-                  });
-                }, child: Text( isLogin? "don't have and account? Signup" : "Already hav an account? Login", style: TextStyle(fontSize: 18),)),
-              )
-            ],
+                 const SizedBox(height: 70,),
+                    
+                 const Text("Email", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                    
+                  TextFormField(
+                    controller: email,
+                    validator: (value) {
+                      if(value ==""){
+                        return "this field is required";
+                      }
+                    },
+                  ),
+                    
+                 const SizedBox(height: 50,),
+                    
+                 const Text("Password", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                    
+                  TextFormField(
+                    controller: password,
+                    obscureText: true,
+                    validator: (value) {
+                      
+                      if(value ==""){
+                        return "this field is required";
+                      }
+                    },
+                  ),
+            
+                 const SizedBox(height: 50,),
+                  Container(
+                    alignment: Alignment.center,
+                    child: MaterialButton(
+                      color: Colors.red,
+                        onPressed: () {
+                          if(formKey.currentState!.validate()){
+                            isLogin? signInWithEmailAndPassword() : signupWithEmailAndPassword();
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => MoviesListScreen(),));
+                          }else{
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("All Fields required")));
+                          }
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 100,
+                          alignment: Alignment.center,
+                          child: Text("$screenText", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),),
+                        )
+                    ),
+                  ),
+            
+                  SizedBox(height: 50,),
+                  Container(
+                    alignment: Alignment.center,
+                    child: TextButton(onPressed: (){
+                      setState(() {
+            
+                        
+                        isLogin = !isLogin;
+                        if(isLogin){
+                          screenText = "Login";
+                        }else{
+                        screenText = "SignUp";
+            
+                        }
+                      });
+                    }, child: Text( isLogin? "don't have and account? Signup" : "Already hav an account? Login", style: TextStyle(fontSize: 14),)),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),

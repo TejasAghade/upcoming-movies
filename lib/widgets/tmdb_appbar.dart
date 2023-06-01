@@ -9,7 +9,7 @@ import 'package:upcoming_movies/widgets/background_circle_widget.dart';
 
 AppBar tmdbAppBar(String text, BuildContext context) {
     return AppBar(
-      toolbarHeight: 70,
+      toolbarHeight: 50,
       elevation: 1,
       backgroundColor: appbarColor,
       title: Text(text, style: const TextStyle(
@@ -34,21 +34,21 @@ AppBar tmdbAppBar(String text, BuildContext context) {
           )
         ),
         width10,
-        BackgroundCircle(
-          child: IconButton(
-            onPressed: (){
-            }, 
-            icon: const Icon(
-              Icons.person, 
-              size: personIconSize,
-              color: iconsColor,
-            )
-          ),
-          color: const Color.fromARGB(255, 255, 255, 255),
-          height: 50,
-          width: 50
-        ),
-        width10
+        // BackgroundCircle(
+        //   child: IconButton(
+        //     onPressed: (){
+        //     }, 
+        //     icon: const Icon(
+        //       Icons.person, 
+        //       size: personIconSize,
+        //       color: iconsColor,
+        //     )
+        //   ),
+        //   color: const Color.fromARGB(255, 255, 255, 255),
+        //   height: 30,
+        //   width: 30
+        // ),
+        // width10
 
       ],
     );
